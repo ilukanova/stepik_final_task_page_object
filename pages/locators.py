@@ -19,7 +19,3 @@ class ProductPageLocators():
     PRODUCT_PRICE = (By.CSS_SELECTOR, "p.price_color")
     MESSAGE_PRODUCT_ADDED_TO_BASKET = (By.CSS_SELECTOR, "#messages > div.alert:first-child > div.alertinner")
     MESSAGE_PRODUCT_PRICE_BASKET = (By.CSS_SELECTOR, "#messages > div.alert:nth-child(3) > div.alertinner > p")
-
-
-
-

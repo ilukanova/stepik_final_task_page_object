@@ -33,6 +33,10 @@ class ProductPage(BasePage):
         assert self.is_element_present(*ProductPageLocators.PRODUCT_PRICE), "Price of product is not found"
         return self.browser.find_element(*ProductPageLocators.PRODUCT_PRICE).text
 
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.MESSAGE_PRODUCT_ADDED_TO_BASKET), \
+            "Success message is presented, but should not be"
 
-
-
+    def should_disappeared_success_message(self):
+        assert self.is_disappeared(*ProductPageLocators.MESSAGE_PRODUCT_ADDED_TO_BASKET), \
+            "Success message is not disappeared, but should be"
