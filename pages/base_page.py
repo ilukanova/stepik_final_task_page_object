@@ -7,11 +7,11 @@ from selenium.webdriver.support import expected_conditions as EC
 import math
 
 
-class BasePage():
+class BasePage:
     def __init__(self, browser, url, timeout=10):
         self.browser = browser
         self.url = url
-        #self.browser.implicitly_wait(timeout)
+        self.browser.implicitly_wait(timeout)
 
     def open(self):
         self.browser.get(self.url)
@@ -19,7 +19,7 @@ class BasePage():
     def is_element_present(self, how, what):
         try:
             self.browser.find_element(how, what)
-        except (NoSuchElementException):
+        except NoSuchElementException:
             return False
         return True
 
@@ -66,3 +66,7 @@ class BasePage():
         assert self.is_element_present(*BasePageLocators.BASKET_BUTTON), "Basket button is not presented"
         link = self.browser.find_element(*BasePageLocators.BASKET_BUTTON)
         link.click()
+
+    def should_be_authorized_user(self):
+        assert self.is_element_present(*BasePageLocators.USER_ICON), "User icon is not presented," \
+                                                                     " probably unauthorised user"
