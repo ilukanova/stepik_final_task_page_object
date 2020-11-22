@@ -14,14 +14,12 @@ class ProductPage(BasePage):
     def should_be_message_adding_to_basket(self, product_name):
         message_adding_to_basket = self.browser.find_element(
             *ProductPageLocators.MESSAGE_PRODUCT_ADDED_TO_BASKET).text
-        print(message_adding_to_basket)
         assert message_adding_to_basket == f"{product_name} has been added to your basket.",\
             "Wrong message adding to basket"
 
     def should_be_message_with_product_price(self, product_price):
         message_with_product_price = self.browser.find_element(
             *ProductPageLocators.MESSAGE_PRODUCT_PRICE_BASKET).text
-        print(message_with_product_price)
         assert message_with_product_price == f"Your basket total is now {product_price}",\
             "Wrong message with product price"
 
